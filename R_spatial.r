@@ -24,3 +24,45 @@ spplot(meuse,c("copper","zinc"))
 bubble(meuse,"zinc")
 
 bubble(meuse,"lead", col="blue")
+
+#16/11/2020 
+#install ggplot2 library
+install.packages("ggplot2")
+library(ggplot2)
+
+#ecological dataframe
+# biofuels
+biofuels <- c(120,200,350,570,750) #array of values:c
+biofuels
+#oxydative enzimes
+oxydative <- c(1200,1300,21000,34000,50000)
+
+# define dataframe
+d <- data.frame(biofuels,oxydative)#the arrow means that d is the name of the dataframe
+d
+
+ggplot(d,aes(x=biofuels,y=oxydative)) #white board
+# now we have to decide what we want to use to plot (lines, points..)# we have to choose the geometry
+ggplot(d,aes(x=biofuels,y=oxydative))+geom_point()
+# change the colors and size
+ggplot(d,aes(x=biofuels,y=oxydative))+geom_point(col="blue", size=5)
+
+# line instead of points
+ggplot(d,aes(x=biofuels,y=oxydative))+geom_line(col="blue", size=5)
+
+# use points and lines together
+ggplot(d,aes(x=biofuels,y=oxydative))+geom_point(col="blue", size=5) + geom_line()
+
+# use polygons
+ggplot(d,aes(x=biofuels,y=oxydative))+geom_polygon()
+
+#IMPORT DATA FROM AN EXTERNAL SOURCE!!
+# setwd("path/lab")
+setwd("/Users/Elisa Padulosi/iCloud Drive/Scrivania/LAB/")
+
+
+covid<-read.table("covid_agg.csv", header=TRUE)
+
+
+
+
