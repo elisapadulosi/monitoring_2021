@@ -58,11 +58,21 @@ ggplot(d,aes(x=biofuels,y=oxydative))+geom_polygon()
 
 #IMPORT DATA FROM AN EXTERNAL SOURCE!!
 # setwd("path/lab")
-setwd("/Users/Elisa Padulosi/iCloud Drive/Scrivania/LAB/")
+setwd("/Users/elisapadulosi/Desktop/LAB/")
 
 
 covid<-read.table("covid_agg.csv", header=TRUE)
 
+
+#20/11/2020
+covid
+head(covid)
+summary(covid)
+#ggplot2
+library(ggplot2)
+ggplot(covid, aes(x=lon,y=lat))+geom_point()
+#changing the size of date according to the amount of data
+ggplot(covid, aes(x = lon, y = lat, size = cases))+geom_point()
 
 
 
