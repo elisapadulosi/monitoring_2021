@@ -26,5 +26,49 @@ points(covid_planar)
 #putting countries on top of the map (we will need another package)
 install.packages("rgdal")
 
-#23/11/2020
+#23/11/2020 plot the density and interpulation
+# to use rgdal
+library(rgdal)
+#import data from 10m coastline
+coastline<-readOGR("ne_10m_coastline.shp")
+
+plot(density_map, col=cl)
+points(covid_planar)
+#add coastline
+plot(coastline, add=TRUE)
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+#let's change the points
+points(covid_planar, pch=19)
+
+# to export the map
+#in png
+png("figure 1.png")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+#in pdf
+pdf("figure1.pdf")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+#INTERPOLATION
+#explain to R where to find the data
+marks(covid_planar)<-cases
+# function to do the interpulation (Smooth)
+cases_map<-Smooth(covid_planar)
+plot(cases_map, col = cl)
+plot(coastlines, add = T)
+points(covid_planar)
+
+
+
+
+
+
 
