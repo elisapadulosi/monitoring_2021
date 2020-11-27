@@ -67,6 +67,11 @@ plot(coastlines, add = T)
 points(covid_planar)
 
 
+# 27/11/2020
+# plotting points with different with differet size related to covid data together with the interpolation
+
+
+
 
 
 
