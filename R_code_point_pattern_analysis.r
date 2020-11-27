@@ -69,6 +69,35 @@ points(covid_planar)
 
 # 27/11/2020
 # plotting points with different with differet size related to covid data together with the interpolation
+setwd("/Users/elisapadulosi/Desktop/LAB/") #to recall the working directory
+library(spatstat)
+library(rgdal)
+covid <- read.table("covid_agg.csv", header=TRUE)
+head(covid)
+
+attach(covid)
+covid_planar <- ppp(lon, lat, c(-180,180), c(-90,90))
+marks(covid_planar) <- cases
+cases_map <- Smooth(covid_planar)
+
+cl <- colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100)
+plot(cases_map, col = cl)
+
+#new package sf
+install.packages("sf")
+library(sf)
+
+Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
+plot(cases_map, col=cl)
+plot(Spoints, cex=Spoints$cases, col="purple3", lwd=3, add=T)
+
+plot(cases_map, col = cl)
+plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
+
+#add to the map the coastlines
+library(rgdal)
+coastlines <- readOGR("ne_10m_coastline.shp")
+plot(coastlines, add = TRUE)
 
 
 
