@@ -26,7 +26,7 @@ points(covid_planar)
 #putting countries on top of the map (we will need another package)
 install.packages("rgdal")
 
-#23/11/2020 plot the density and interpulation
+#####23/11/2020 plot the density and interpulation
 # to use rgdal
 library(rgdal)
 #import data from 10m coastline
@@ -67,7 +67,7 @@ plot(coastlines, add = T)
 points(covid_planar)
 
 
-# 27/11/2020
+##### 27/11/2020
 # plotting points with different with differet size related to covid data together with the interpolation
 setwd("/Users/elisapadulosi/Desktop/LAB/") #to recall the working directory
 library(spatstat)
@@ -98,6 +98,26 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 library(rgdal)
 coastlines <- readOGR("ne_10m_coastline.shp")
 plot(coastlines, add = TRUE)
+
+
+
+#### 30/11/2020 # use of Zabotti data
+
+setwd("/Users/elisapadulosi/Google Drive/LAB/") #recall directory (now lab folder is in Google Drive)
+leo<- read.table("dati_zabotti.csv", header=T, sep=",") #personal reminder: when saving a file, use csv, not pdf
+
+head(leo)
+attach(leo)
+library(spatstat)
+
+#to have the minimum and maximum x and y
+summary(leo)
+leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
+plot(leo_ppp)
+
+density_map<-density(leo_ppp)
+plot(density_map)
+points(leo_ppp)
 
 
 
