@@ -101,6 +101,7 @@ plot(coastlines, add = TRUE)
 
 
 
+
 #### 30/11/2020 # use of Zabotti data
 
 setwd("/Users/elisapadulosi/Google Drive/LAB/") #recall directory (now lab folder is in Google Drive)
@@ -118,6 +119,68 @@ plot(leo_ppp)
 density_map<-density(leo_ppp)
 plot(density_map)
 points(leo_ppp)
+
+
+
+
+######   4/12/2020 INTERPOLATION of students'data
+setwd("/Users/elisapadulosi/Google Drive/LAB/")
+  #load function
+load("point_pattern_analysis.RData")
+
+library(spatstat) # to make visible the variable
+attach(leo)
+marks(leo_ppp)<-chlh #explain to R that I want to use the variable chlorophyll in the water
+chlh_map<- Smooth(leo_ppp) ### NB NBNBNBNB WHEN MAKE AN ARROW, USE ONLY ONE MINUS
+plot(chlh_map) 
+points(leo_ppp)
+
+  #change the colors
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100) # 
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+
+#do also the same for chls in the sediments
+attach(leo)
+marks(leo_ppp)<- chls
+chls_map<- Smooth(leo_ppp)
+
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+# to see the maps together (multiframe) 
+par(mfrow=c(1,3))
+
+#first graph: density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+#second graph: chlorophyll in the water
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+#third graph: chlorophyll in the soil
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+
+# Exercise: build a multipanel with 3 rows and 1 column
+# multipanel
+par(mfrow=c(3,1))
+
+# first graph: density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+# second graph
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+# third graph
+plot(chls_map, col=cl)
+points(leo_ppp)
+
 
 
 
