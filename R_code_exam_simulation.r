@@ -16,5 +16,5 @@ plot(tjan, col=cltjan) # to change the colors
 #difference between the temperature of january and october at the soil level # higher the difference->more red the image
 dift <- tjan - toct
 cldif <- colorRampPalette(c('blue','white','red'))(100) #
-plot(dift, col=cldif)
+plot(dift, col=cldif) # if it gives an error it's because you have to download the january data from Copernicus also
 
