@@ -40,6 +40,12 @@ copNDVI_Italy <- crop(copNDVI, ext)
 plot(copNDVI_Italy, col=clymax)
 
 
+## 18/01/2021
+# deforestation
+library(raster)
+library(RStoolbox)
+
+
 
 
 
