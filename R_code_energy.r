@@ -111,6 +111,7 @@ plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 plot(dvi1, col=cl, main="biomass before cut")
 plot(dvi2, col=cl, main="biomass after cut")
+hist(difdvi,col="red")
 plot(difdvi, col=cldif, main="amount of energy lost!")
 
 
