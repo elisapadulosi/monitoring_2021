@@ -1,6 +1,7 @@
-#### chemical cycles pollution
-setwd("/Users/elisapadulosi/Google Drive/LAB/")
+#### chemical cycles pollution--> level NO2 using Sentinel of the European Space Agency
+setwd("/Users/elisapadulosi/Google Drive/LAB/")# to set the working directory
 
+# pu the png files in R (january2020-march2020)
 EN01 <- raster("EN_0001.png")
 EN02 <- raster("EN_0002.png")
 EN03 <- raster("EN_0003.png")
@@ -15,18 +16,27 @@ EN11 <- raster("EN_0011.png")
 EN12 <- raster("EN_0012.png")
 EN13 <- raster("EN_0013.png")
 
+#or if we want to upload all together
+rlist <- list.files(pattern="EN")
+rlist 
+list_rast <- lapply(rlist, raster) #lapply=apply the raster fuction to the list of file
+ENstack <- stack(list_rast)
 
-cl <- colorRampPalette(c('red','orange','yellow'))(100) # 
+# color
+cl <- colorRampPalette(c('red','orange','yellow'))(100) 
 
+# plot the data
 par(mfrow=c(1,2))
 plot(EN01, col=cl)
 plot(EN13, col=cl)
 
+#difference between the two periods
 dev.off()
 difno2 <- EN01 - EN13
 cldif <- colorRampPalette(c('blue','black','yellow'))(100) # 
 plot(difno2, col=cldif)
 
+#copy and paste the images to see the differences between the periods
 plot(EN01, col=cl)
 plot(EN02, col=cl)
 plot(EN03, col=cl)
@@ -41,6 +51,7 @@ plot(EN11, col=cl)
 plot(EN12, col=cl)
 plot(EN13, col=cl)
 
+# all images together
 par(mfrow=c(4,4))
 plot(EN01, col=cl)
 plot(EN02, col=cl)
@@ -57,7 +68,7 @@ plot(EN12, col=cl)
 plot(EN13, col=cl)
 
 
-# make a stack
+#  stack (data we can put in one image)
 EN <- stack(EN01,EN02,EN03,EN04,EN05,EN06,EN07,EN08,EN09,EN10,EN11,EN12,EN13)
 plot(EN, col=cl)
 
@@ -65,6 +76,6 @@ plot(EN, col=cl)
 dev.off()
 plotRGB(EN, red=EN13, green=EN07, blue=EN01, stretch="lin")
 
-# boxplot
+# boxplot the max value decrease and the median values remain the same
 dev.off()
 boxplot(EN,horizontal=T,axes=T,outline=F, col="red",xlab="NO2 - 8bit", ylab="Period")
