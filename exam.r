@@ -111,7 +111,7 @@ plot(tafter, col=tcl,main="T after bushfires") #increase in T
 
 # let's see the differences before and after
 tdifbushfires<- tbefore-tafter
-plot(tdifbushfires, col= tcl, main="difference T before and after")
+plot(tdifbushfires, col= tcl, main="difference T before and after") # higher the difference->more red the image
 
 #let's create a grapf with: tbefore, tduring, tafter, tdifbushfires
 # par function to have multiple graphs in a single plot 
@@ -162,7 +162,7 @@ plot(afterfires, col=fcl,main="fires after the season")
 diffcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
 
 difbushfires<- beforefires-afterfires
-plot(difbushfires, col= diffcl, main="difference fires before and after") 
+plot(difbushfires, col= diffcl, main="difference fires before and after") # higher the difference->more red the image
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
