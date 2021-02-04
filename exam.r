@@ -149,11 +149,11 @@ duringfires<-crop(duringfires, ext)
 afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
-fcl <- colorRampPalette(c("cornsilk", "coral2","brown"))(100)
+fcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
 
 # function main to name the graphs
 # before
-plot(beforefires, col=fcl,main="fires before the season")
+plot(beforefires, col=fcl,main="fires before the season")# seems to be no fires
 
 #during
 plot(duringfires, col=fcl,main="fires during the season")
@@ -178,5 +178,8 @@ plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
 plot(difbushfires, col= diffcl, main="difference fires before and after")
 
-
-
+# let's crop closer the area of the bushfires (south east) in order to study in a better way the situation
+ext2<-c(140,155,-45,-30)
+duringfires<-crop(duringfires, ext2)
+diffcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
+plot(duringfires, col=fcl,main="fires during the season")
