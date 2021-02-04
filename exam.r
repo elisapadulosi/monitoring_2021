@@ -185,6 +185,11 @@ duringfires<-crop(duringfires, ext2)
 plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
 
 
+#let's do a scatter plot to see how T and bushfires are correlated
+# not possible with the Copernicus data 
+plot(duringfires$Time,tduring$weight)
+
+
 # JUST FOR FUN
 # I wanted to see all the possible colors that can be used
 # So I took different functions of the Color Palettes and see what happens
