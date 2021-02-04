@@ -190,7 +190,7 @@ plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
 # So I took different functions of the Color Palettes and see what happens
  heat.colors(afterfires, alpha = 1, rev = FALSE)
 #funtion, where n is the number of colors to be in the Palette and  alpha is the transparency. Rev is to reverse the colors.
-# totalo of 248 colors. I want to see them all
+# total of 248 colors. I want to see them all using the function barplot
 n=248
 barplot(rep(1, n), col = heat.colors(248))
 
