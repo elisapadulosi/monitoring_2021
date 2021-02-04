@@ -64,10 +64,10 @@ plot(difbushfires, col= Ncl) #south and east parts have decrease of ndvi, conist
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
 par(mfrow=c(1,4)) # 1 row, 4 colums
-plot(ndvibefore, col=Tcl,main="NDVI before bushfires")
-plot(ndviduring, col=Tcl,main="NDVI during bushfires")
-plot(ndviafter, col=Tcl,main="NDVI after bushfires")
-plot(difbushfires, col= Tcl,main="NDVI differnce")
+plot(ndvibefore, col=Ncl,main="NDVI before bushfires")
+plot(ndviduring, col=Ncl,main="NDVI during bushfires")
+plot(ndviafter, col=Ncl,main="NDVI after bushfires")
+plot(difbushfires, col= Ncl,main="NDVI differnce")
 
 
 
@@ -158,8 +158,11 @@ plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
 
 # let's see the differences before and after
+# let's change the colors to better highlight the situation
+diffcl <- colorRampPalette(c('white',"azure2",'darkred'))(100)
+
 difbushfires<- beforefires-afterfires
-plot(difbushfires, col= fcl, main="difference fires before and after") 
+plot(difbushfires, col= diffcl, main="difference fires before and after") 
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
@@ -169,7 +172,7 @@ par(mfrow=c(1,4)) # 1 row, 4 colums
 plot(beforefires, col=fcl,main="fires before the season")
 plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
-plot(difbushfires, col= fcl, main="difference fires before and after")
+plot(difbushfires, col= diffcl, main="difference fires before and after")
 
 
 
