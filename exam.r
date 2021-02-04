@@ -45,10 +45,10 @@ ndviafter<-crop(ndviafter, ext)
 #let's crop ndviduring
 ndviduring<-crop(ndviduring, ext)
 
-#let's plot and change the colors to the plotted images with the function colorRampPalette
+#let's plot using a palette
 #function main to name the graphs
 #before
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
+cl <- colorRampPalette(c('blue','red','yellow'))(100) # to define the color palette 
 plot(ndvibefore, col=cl,main="NDVI before bushfires")
 
 #during
@@ -99,16 +99,14 @@ plot(tafter)
 
 # so, let's plot and change the colors to the plotted images with the function colorRampPalette
 # function main to name the graphs
+# cl already defined in NDVI
 # before
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(tbefore, col=cl,main="T before bushfires")
 
 #during
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(tduring, col=cl,main="T during bushfires")
 
 #after
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(tafter, col=cl,main="T after bushfires") #increase in T
 
 # let's see the differences before and after
@@ -148,16 +146,14 @@ afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
 # function main to name the graphs
+# cl already defined in NDVI
 # before
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(beforefires, col=cl,main="fires before the season")
 
 #during
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(duringfires, col=cl,main="fires during the season")
 
 #after
-cl <- colorRampPalette(c('blue','red','yellow'))(100)
 plot(afterfires, col=cl,main="fires after the season")
 
 # let's see the differences before and after
