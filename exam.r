@@ -25,7 +25,7 @@ setwd("/Users/elisapadulosi/Google Drive/LAB/")
 # My hypothesis: NDVI before > NDVIafter  Tbefore < Tafter
 
 
-# NDVI
+# NDVI is used to observe if the vegetation is alive
 # ndvi before 10/04/2019
 ndvibefore<-raster("c_gls_NDVI300_201904010000_GLOBE_PROBAV_V1.0.1.nc")
 
@@ -46,10 +46,9 @@ ndviafter<-crop(ndviafter, ext)
 ndviduring<-crop(ndviduring, ext)
 
 #let's plot using a palette
-#function main to name the graphs
 #before
 Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100) # to define the color palette 
-plot(ndvibefore, col=Ncl,main="NDVI before bushfires")
+plot(ndvibefore, col=Ncl,main="NDVI before bushfires") #function main to name the graphs
 
 #during
 plot(ndviduring, col=Ncl,main="NDVI during bushfires")
@@ -146,30 +145,31 @@ duringfires<-crop(duringfires, ext)
 afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
+fcl <- colorRampPalette(c("cornsilk", "coral2","brown"))(100)
+
 # function main to name the graphs
-# cl already defined in NDVI
 # before
-plot(beforefires, col=cl,main="fires before the season")
+plot(beforefires, col=fcl,main="fires before the season")
 
 #during
-plot(duringfires, col=cl,main="fires during the season")
+plot(duringfires, col=fcl,main="fires during the season")
 
 #after
-plot(afterfires, col=cl,main="fires after the season")
+plot(afterfires, col=fcl,main="fires after the season")
 
 # let's see the differences before and after
 difbushfires<- beforefires-afterfires
-plot(difbushfires, col= cl, main="difference fires before and after") 
+plot(difbushfires, col= fcl, main="difference fires before and after") 
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
 par(mfrow=c(1,4)) # 1 row, 4 colums
-plot(beforefires, col=cl,main="fires before the season")
-plot(duringfires, col=cl,main="fires during the season")
-plot(afterfires, col=cl,main="fires after the season")
-plot(difbushfires, col= cl, main="difference fires before and after")
+plot(beforefires, col=fcl,main="fires before the season")
+plot(duringfires, col=fcl,main="fires during the season")
+plot(afterfires, col=fcl,main="fires after the season")
+plot(difbushfires, col= fcl, main="difference fires before and after")
 
 
 
