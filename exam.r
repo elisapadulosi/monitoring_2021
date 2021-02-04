@@ -159,7 +159,7 @@ plot(afterfires, col=fcl,main="fires after the season")
 
 # let's see the differences before and after
 # let's change the colors to better highlight the situation
-diffcl <- colorRampPalette(c('white',"azure2",'darkred'))(100)
+diffcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
 
 difbushfires<- beforefires-afterfires
 plot(difbushfires, col= diffcl, main="difference fires before and after") 
