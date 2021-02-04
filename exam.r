@@ -185,5 +185,29 @@ duringfires<-crop(duringfires, ext2)
 plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
 
 
+# JUST FOR FUN
+# I wanted to see all the possible colors that can be used
+# So I took different functions of the Color Palettes and see what happens
+ heat.colors(afterfires, alpha = 1, rev = FALSE)
+#funtion, where n is the number of colors to be in the Palette and  alpha is the transparency. Rev is to reverse the colors.
+# totalo of 248 colors. I want to see them all
+n=248
+barplot(rep(1, n), col = heat.colors(248))
+
+barplot(rep(1, n), col = rainbow(248))
+
+barplot(rep(1, n), col = terrain.colors(248))
+
+barplot(rep(1, n), col = topo.colors(30))
+
+barplot(rep(1, n), col = cm.colors(30))
+
+
+
+
+
+
+
+
 
 
