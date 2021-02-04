@@ -184,3 +184,7 @@ ext2<-c(140,155,-45,-30)
 duringfires<-crop(duringfires, ext2)
 plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
 
+
+#let's try to do a scatter plot
+#
+
