@@ -110,7 +110,7 @@ plot(tduring, col=tcl,main="T during bushfires")
 plot(tafter, col=tcl,main="T after bushfires") #increase in T
 
 # let's see the differences before and after
-tdifbushfires<- tbefore-tafter
+tdifbushfires<- tafter-tbefore
 plot(tdifbushfires, col= tcl, main="difference T before and after") # higher the difference->more red the image
 
 #let's create a grapf with: tbefore, tduring, tafter, tdifbushfires
