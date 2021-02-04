@@ -170,6 +170,5 @@ plot(duringfires, col=cl,main="fires during the season")
 plot(afterfires, col=cl,main="fires after the season")
 plot(difbushfires, col= cl, main="difference fires before and after")
 
-# let's do a complete graph
-par(mfrow=c(3,4)) 
+
 
