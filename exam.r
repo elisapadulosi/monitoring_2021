@@ -48,27 +48,27 @@ ndviduring<-crop(ndviduring, ext)
 #let's plot using a palette
 #function main to name the graphs
 #before
-cl <- colorRampPalette(c('blue','red','yellow'))(100) # to define the color palette 
-plot(ndvibefore, col=cl,main="NDVI before bushfires")
+Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100) # to define the color palette 
+plot(ndvibefore, col=Ncl,main="NDVI before bushfires")
 
 #during
-plot(ndviduring, col=cl,main="NDVI during bushfires")
+plot(ndviduring, col=Ncl,main="NDVI during bushfires")
 
 #after
-plot(ndviafter, col=cl,main="NDVI after bushfires")
+plot(ndviafter, col=Ncl,main="NDVI after bushfires")
 
 # let's see the differences before and after
 difbushfires<- ndvibefore-ndviafter
-plot(difbushfires, col= cl) #south and east parts have decrease of ndvi, conistent with the drescrese in the vegetation due to the bushfires
+plot(difbushfires, col= Ncl) #south and east parts have decrease of ndvi, conistent with the drescrese in the vegetation due to the bushfires
 
 #let's create a grapf with: ndvibefore, ndviduring, ndviafter, difbushfires
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
 par(mfrow=c(1,4)) # 1 row, 4 colums
-plot(ndvibefore, col=cl,main="NDVI before bushfires")
-plot(ndviduring, col=cl,main="NDVI during bushfires")
-plot(ndviafter, col=cl,main="NDVI after bushfires")
-plot(difbushfires, col= cl,main="NDVI differnce")
+plot(ndvibefore, col=Tcl,main="NDVI before bushfires")
+plot(ndviduring, col=Tcl,main="NDVI during bushfires")
+plot(ndviafter, col=Tcl,main="NDVI after bushfires")
+plot(difbushfires, col= Tcl,main="NDVI differnce")
 
 
 
