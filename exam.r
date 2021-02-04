@@ -149,7 +149,7 @@ duringfires<-crop(duringfires, ext)
 afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
-fcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
+fcl <- colorRampPalette(c("white", "darkred"))(2)
 
 # function main to name the graphs
 # before
@@ -162,11 +162,12 @@ plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
 
 # let's see the differences before and after
-# let's change the colors to better highlight the situation
-diffcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
-
 difbushfires<- beforefires-afterfires
-plot(difbushfires, col= diffcl, main="difference fires before and after") # higher the difference->more red the image
+plot(difbushfires, col= fcl, main="difference fires before and after")# no difference
+
+#let's see the difference during and after
+diflastyear <- duringfires-afterfires
+plot(diflastyear, col=fcl, main="new fires due to 2019 fires season")
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
@@ -176,10 +177,10 @@ par(mfrow=c(1,4)) # 1 row, 4 colums
 plot(beforefires, col=fcl,main="fires before the season")
 plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
-plot(difbushfires, col= diffcl, main="difference fires before and after")
+plot(difbushfires, col= fcl, main="difference fires before and after")
 
 # let's crop closer the area of the bushfires (south east) in order to study in a better way the situation
 ext2<-c(140,155,-45,-30)
 duringfires<-crop(duringfires, ext2)
-diffcl <- colorRampPalette(c('cadetblue3',"cornsilk2",'darkred'))(100)
-plot(duringfires, col=fcl,main="fires during the season")
+plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
+
