@@ -188,6 +188,7 @@ plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
 #let's do a scatter plot to see how T and bushfires are correlated
 # not possible with the Copernicus data 
 plot(duringfires$Time,tduring$weight)
+# need to change the configuration of the data
 
 
 # JUST FOR FUN
