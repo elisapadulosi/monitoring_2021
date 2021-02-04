@@ -1,22 +1,28 @@
 ## Australia bushfire season (June 2019-May 2020)
 
 # needed packages
-
+# Raster or "gridded" data are data that are saved in pixels. In the spatial world, each pixel represents an area on the Earth's surface.
 install.packages("raster")
 library(raster)
 
+# used to read Copernicis data
 install.packages("ncdf4")
 library(ncdf4)
 
+# Toolbox for remote sensing image processing and analysis such as calculating spectral indices,
 install.packages("RStoolbox")
 library(RStoolbox)
 
+# how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 install.packages("ggplot2")
 library(ggplot2)
 
 # set the workong directory
 setwd("/Users/elisapadulosi/Google Drive/LAB/")
 
+# for this project I want to study NDVI, fires disturbance and land surface temperature. See if and how those variables have changed over time due to the Australia bushfire season
+# I choose to plot also the fires disturbance to see the  differences in occurrence from other fires in Australia (in which they are very common)
+# My hypothesis: NDVI before > NDVIafter  Tbefore < Tafter
 
 
 # NDVI
