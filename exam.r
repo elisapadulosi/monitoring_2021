@@ -99,28 +99,29 @@ plot(tafter)
 
 # so, let's plot and change the colors to the plotted images with the function colorRampPalette
 # function main to name the graphs
-# cl already defined in NDVI
+# changed cl
+tcl <- colorRampPalette(c('yellow2','goldenrod','darkred'))(100)
 # before
-plot(tbefore, col=cl,main="T before bushfires")
+plot(tbefore, col=tcl,main="T before bushfires")
 
 #during
-plot(tduring, col=cl,main="T during bushfires")
+plot(tduring, col=tcl,main="T during bushfires")
 
 #after
-plot(tafter, col=cl,main="T after bushfires") #increase in T
+plot(tafter, col=tcl,main="T after bushfires") #increase in T
 
 # let's see the differences before and after
 tdifbushfires<- tbefore-tafter
-plot(tdifbushfires, col= cl, main="difference T before and after")
+plot(tdifbushfires, col= tcl, main="difference T before and after")
 
 #let's create a grapf with: tbefore, tduring, tafter, tdifbushfires
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
 par(mfrow=c(1,4)) # 1 row, 4 colums
-plot(tbefore, col=cl,main="T before bushfires")
-plot(tduring, col=cl,main="T during bushfires")
-plot(tafter, col=cl,main="T after bushfires")
-plot(tdifbushfires, col= cl, main="difference T before and after")
+plot(tbefore, col=tcl,main="T before bushfires")
+plot(tduring, col=tcl,main="T during bushfires")
+plot(tafter, col=tcl,main="T after bushfires")
+plot(tdifbushfires, col= tcl, main="difference T before and after")
 
 
 
