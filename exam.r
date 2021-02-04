@@ -158,7 +158,8 @@ plot(afterfires, col=cl,main="fires after the season")
 
 # let's see the differences before and after
 difbushfires<- beforefires-afterfires
-plot(difbushfires, col= cl, main="difference fires before and after")
+plot(difbushfires, col= cl, main="difference fires before and after") 
+# have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
 # par function to have multiple graphs in a single plot 
