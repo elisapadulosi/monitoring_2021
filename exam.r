@@ -193,13 +193,13 @@ plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 
 # BUSHFIRES
 # I took also the fires before and after that period to see if there were the same fires in the past
-# bushfires before Australia bushfire season (June 2019-May 2020)-> 21-30/04/2015
+# bushfires before Australian bushfire season (June 2019-May 2020)-> 21-30/04/2015
 beforefires<-raster("c_gls_BA300_201504300000_GLOBE_PROBAV_V1.0.1.nc")
 
-# bushfires during Australia bushfire season (June 2019-May 2020) -> 21-31/12/2019
+# bushfires during Australian bushfire season (June 2019-May 2020) -> 21-31/12/2019
 duringfires<-raster("c_gls_BA300_201912310000_GLOBE_PROBAV_V1.1.1.nc")
 
-# bushfires after Australia bushfire season (June 2019-May 2020) -> 1-10/06/2021
+# bushfires after Australian bushfire season (June 2019-May 2020) -> 1-10/06/2021
 afterfires<-raster("c_gls_BA300_202101100000_GLOBE_PROBAV_V1.1.1.nc")
 
 #let's crop on Australia
