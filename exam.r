@@ -1,4 +1,4 @@
-## Australia bushfire season (June 2019-May 2020)
+## Australian bushfire season (June 2019-May 2020)
 
 # needed packages
 # Raster or "gridded" data are data that are saved in pixels. In the spatial world, each pixel represents an area on the Earth's surface.
