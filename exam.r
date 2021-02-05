@@ -244,7 +244,7 @@ difbushfires<- afterfires-beforefires
 plot(difbushfires, col= fcl, main="difference in fires from after the season and before")
 
 #let's see the difference during and before
-diflastyear <- duringfires-beforefires
+diflastyear <- beforefires-duringfires
 plot(diflastyear, col=fcl, main="new fires due to 2019 fires season")
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
 #in png
