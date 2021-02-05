@@ -33,8 +33,8 @@ ndvibefore<-raster("c_gls_NDVI300_201904010000_GLOBE_PROBAV_V1.0.1.nc")
 # ndvi after Australia bushfire season (June 2019-May 2020) -> 10/06/2020
 ndviafter<-raster("c_gls_NDVI300_202006010000_GLOBE_PROBAV_V1.0.1.nc")
 
-# ndvi during the bushfires Australia bushfire season (June 2019-May 2020) -> 29/02/2020
-ndviduring<-raster("c_gls_NDVI300_202002210000_GLOBE_PROBAV_V1.0.1.nc")
+# ndvi during the bushfires Australia bushfire season (June 2019-May 2020) -> 21-30/12/2019
+ndviduring<-raster("c_gls_NDVI300_201912210000_GLOBE_PROBAV_V1.0.1.nc	")
 
  
 # I want to study only Australia, so I must find its spatial coordinates
@@ -107,8 +107,8 @@ plot(difbushfires, col= Ncl,main="NDVI differnce")
 # temperature before Australia bushfire season (June 2019-May 2020) -> 1-10/04/2019
 tbefore<- raster("c_gls_LST10-DC_201904010000_GLOBE_GEO_V1.2.1.nc")
 
-#temperature during Australia bushfire season (June 2019-May 2020) -> 21-29/02/2020
-tduring<-raster("c_gls_LST10-DC_202002210000_GLOBE_GEO_V1.2.1.nc")
+#temperature during Australia bushfire season (June 2019-May 2020) -> 21-30/12/2019
+tduring<-raster("c_gls_LST10-DC_201911210000_GLOBE_GEO_V1.2.1.nc")
 
 #temperature after Australia bushfire season (June 2019-May 2020)-> 1-10/06/2020
 tafter<- raster("c_gls_LST10-DC_202006010000_GLOBE_GEO_V1.2.1.nc")
@@ -196,8 +196,8 @@ plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 # bushfires before Australia bushfire season (June 2019-May 2020)-> 21-30/04/2015
 beforefires<-raster("c_gls_BA300_201504300000_GLOBE_PROBAV_V1.0.1.nc")
 
-# bushfires during Australia bushfire season (June 2019-May 2020) -> 21-29/02/2020
-duringfires<-raster("c_gls_BA300_202002290000_GLOBE_PROBAV_V1.1.1.nc")
+# bushfires during Australia bushfire season (June 2019-May 2020) -> 21-31/12/2019
+duringfires<-raster("c_gls_BA300_201912310000_GLOBE_PROBAV_V1.1.1.nc")
 
 # bushfires after Australia bushfire season (June 2019-May 2020) -> 1-10/06/2021
 afterfires<-raster("c_gls_BA300_202101100000_GLOBE_PROBAV_V1.1.1.nc")
