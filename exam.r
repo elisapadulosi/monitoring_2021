@@ -264,7 +264,7 @@ plot(diflastyear, col= fcl, main="new fires due to 2019 fires season")
 # let's crop closer the area of the bushfires (south east) in order to study in a better way the situation
 ext2<-c(140,155,-45,-30)
 duringfires2<-crop(duringfires, ext2)
-plot(duringfires, col=fcl,main="fires during the season")
+plot(duringfires2, col=fcl,main="fires during the season")
 #in png
 png("fires during the season in the South East.png")
 plot(duringfires2, col=fcl,main="fires during the season in the South East") 
