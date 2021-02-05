@@ -3,6 +3,7 @@
 # needed packages
 # Raster or "gridded" data are data that are saved in pixels. In the spatial world, each pixel represents an area on the Earth's surface.
 install.packages("raster")
+#function library to recall the package
 library(raster)
 
 # used to read Copernicus data
@@ -51,17 +52,45 @@ ndviduring<-crop(ndviduring, ext)
 #let's plot using a palette
 #before
 Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100) # to define the color palette 
+#100 is referred to the number of colors that I'm using, it is possible to put any number
 plot(ndvibefore, col=Ncl,main="NDVI before bushfires") #function main to name the graphs
+
+# to export the map
+#in png
+png("NDVI before bushfires.png")
+Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100)
+plot(ndvibefore, col=Ncl,main="NDVI before bushfires") 
+dev.off()
 
 #during
 plot(ndviduring, col=Ncl,main="NDVI during bushfires")
+# to export the map
+#in png
+png("NDVI during bushfires.png")
+Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100)
+plot(ndviduring, col=Ncl,main="NDVI during bushfires") 
+dev.off()
 
 #after
-plot(ndviafter, col=Ncl,main="NDVI after bushfires")
+plot(ndviafter, col=Ncl,main="NDVI after bushfires")# increase in NDVI->not consistent with the hypothesis (maybe because of the reflectance of the fires?)
+# to export the map
+#in png
+png("NDVI after bushfires.png")
+Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100)
+plot(ndviafter, col=Ncl,main="NDVI after bushfires") 
+dev.off()
+
 
 # let's see the differences before and after
 difbushfires<- ndvibefore-ndviafter
 plot(difbushfires, col= Ncl) #south and east parts have decrease of ndvi, conistent with the drescrese in the vegetation due to the bushfires
+#the scale of the image is from -1.0 to 1.0 -> right scale for the NDVI
+# to export the map
+#in png
+png("NDVI difbushfires.png")
+Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100)
+plot(difbushfires, col=Ncl,main="NDVI difbushfires") 
+dev.off()
 
 #let's create a grapf with: ndvibefore, ndviduring, ndviafter, difbushfires
 # par function to have multiple graphs in a single plot 
@@ -101,20 +130,56 @@ plot(tafter)
 
 # so, let's plot and change the colors to the plotted images with the function colorRampPalette
 # function main to name the graphs
-# changed cl
+# changed cl in order to see better the difference on T
 tcl <- colorRampPalette(c('yellow2','goldenrod','darkred'))(100)
+
 # before
 plot(tbefore, col=tcl,main="T before bushfires")
+# to export the map
+#in png
+png("T before bushfires.png")
+tcl <- colorRampPalette(c('yellow2','goldenrod','darkred'))(100)
+plot(tbefore, col=tcl,main="T before bushfires") 
+dev.off()
 
 #during
 plot(tduring, col=tcl,main="T during bushfires")
+# to export the map
+#in png
+png("T during bushfires.png")
+tcl <- colorRampPalette(c('yellow2','goldenrod','darkred'))(100)
+plot(tduring, col=tcl,main="T during bushfires") 
+dev.off()
 
 #after
 plot(tafter, col=tcl,main="T after bushfires") #increase in T
+# to export the map
+#in png
+png("T after bushfires.png")
+tcl <- colorRampPalette(c('yellow2','goldenrod','darkred'))(100)
+plot(tafter, col=tcl,main="T after bushfires") 
+dev.off()
 
 # let's see the differences before and after
+#change the color palette to better highlight the differences
+tdiffcl <- colorRampPalette(c("mediumblue",'goldenrod','darkred'))(100)
 tdifbushfires<- tafter-tbefore
-plot(tdifbushfires, col= tcl, main="difference T before and after") # higher the difference->more red the image
+plot(tdifbushfires, col= tdiffcl, main="difference T after and before") # higher the difference->more red the image
+# to export the map
+#in png
+png("difference T after and before.png")
+plot(tdifbushfires, col=tdiffcl,main="difference T after and before") 
+dev.off()
+
+# for the difference let's zoom to the south east of Australia
+ext2<-c(140,155,-45,-30)
+tdifbushfires2<-crop(tdifbushfires, ext2)
+plot(tdifbushfires2, col=tdiffcl,main="difference T after and before")
+# to export the map
+#in png
+png("difference T after and before in the south east.png")
+plot(tdifbushfires2, col=tdiffcl,main="difference T after and before in the South East") 
+dev.off()
 
 #let's create a grapf with: tbefore, tduring, tafter, tdifbushfires
 # par function to have multiple graphs in a single plot 
@@ -123,8 +188,7 @@ par(mfrow=c(1,4)) # 1 row, 4 colums
 plot(tbefore, col=tcl,main="T before bushfires")
 plot(tduring, col=tcl,main="T during bushfires")
 plot(tafter, col=tcl,main="T after bushfires")
-plot(tdifbushfires, col= tcl, main="difference T before and after")
-
+plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 
 
 # BUSHFIRES
@@ -149,26 +213,44 @@ duringfires<-crop(duringfires, ext)
 afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
-fcl <- colorRampPalette(c("white", "darkred"))(2)
+fcl <- colorRampPalette(c("white", "darkred"))(2) #two colors to highlight the presence (darkred) and absence (white) of fires
 
 # function main to name the graphs
 # before
 plot(beforefires, col=fcl,main="fires before the season")# seems to be no fires
+# to export the map
+#in png
+png("beforefires.png")
+plot(beforefires, col=fcl,main="fires before the season") 
+dev.off()
 
 #during
 plot(duringfires, col=fcl,main="fires during the season")
+# to export the map
+#in png
+png("duringfires.png")
+plot(duringfires, col=fcl,main="fires during the season") 
+dev.off()
 
 #after
 plot(afterfires, col=fcl,main="fires after the season")
+#in png
+png("afterfires.png")
+plot(afterfires, col=fcl,main="fires after the season") 
+dev.off()
 
 # let's see the differences before and after
-difbushfires<- beforefires-afterfires
-plot(difbushfires, col= fcl, main="difference fires before and after")# no difference
+difbushfires<- afterfires-beforefires
+plot(difbushfires, col= fcl, main="difference in fires from after the season and before")
 
-#let's see the difference during and after
-diflastyear <- duringfires-afterfires
+#let's see the difference during and before
+diflastyear <- duringfires-beforefires
 plot(diflastyear, col=fcl, main="new fires due to 2019 fires season")
 # have increased the fires in the south and east part of Australia -> consistent with the bushfires season
+#in png
+png("new fires due to 2019 fires seasons.png")
+plot(diflastyear, col=fcl,main="new fires due to 2019 fires season") 
+dev.off()
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
 # par function to have multiple graphs in a single plot 
@@ -177,12 +259,16 @@ par(mfrow=c(1,4)) # 1 row, 4 colums
 plot(beforefires, col=fcl,main="fires before the season")
 plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
-plot(difbushfires, col= fcl, main="difference fires before and after")
+plot(diflastyear, col= fcl, main="new fires due to 2019 fires season")
 
 # let's crop closer the area of the bushfires (south east) in order to study in a better way the situation
 ext2<-c(140,155,-45,-30)
-duringfires<-crop(duringfires, ext2)
-plot(duringfires, col=fcl,main="new fires due to 2019 fires season")
+duringfires2<-crop(duringfires, ext2)
+plot(duringfires, col=fcl,main="fires during the season")
+#in png
+png("fires during the season in the South East.png")
+plot(duringfires2, col=fcl,main="fires during the season in the South East") 
+dev.off()
 
 
 #let's do a scatter plot to see how T and bushfires are correlated
