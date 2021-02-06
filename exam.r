@@ -232,7 +232,14 @@ fcl <- colorRampPalette(c("white", "darkred"))(2) #two colors to highlight the p
 
 # function main to name the graphs
 # before
-plot(beforefires, col=fcl,main="fires before the season")# seems to be no burned areas
+plot(beforefires, col=fcl,main="fires before the season")# seems to be no burned areas, maybe the resolution is too low
+
+# so, let's zoom on the central part of australia to see if there are any burned areas
+ext<-c(120,135,-30,-20)
+beforefires<-crop(beforefires, ext)
+plot(beforefires, col=fcl)
+# yes, the resolution was too low. In the central part of Australia there were many burned areas.
+
 # to export the map
 #in png
 png("beforefires.png")
@@ -262,6 +269,9 @@ plot(difbushfires, col= fcl, main="difference in fires from after the season and
 diflastyear <- beforefires-duringfires
 plot(diflastyear, col=fcl, main="new fires due to 2019 fires season")
 # the burned areas have increased in the south and east part of Australia -> consistent with the bushfires season
+
+# but there are also burned areas in the central part (that's why I have zoomed on the central part of Australia in "beforefires")
+
 #in png
 png("new fires due to 2019 fires seasons.png")
 plot(diflastyear, col=fcl,main="new fires due to 2019 fires season") 
