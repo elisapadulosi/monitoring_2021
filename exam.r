@@ -40,7 +40,7 @@ ndviduring<-raster("c_gls_NDVI300_201912210000_GLOBE_PROBAV_V1.0.1.nc	")
 Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreuse1","darkgreen"))(100)
 plot(ndvibefore, col=Ncl)
 # to remove the green part of the oceans
-ndvibefore <- reclassify(ndvibefore, cbind(006400, NA))# I did't remove the green part in the other graphs to see better the continent (006400 is the code for darkgrren)
+ndvibefore <- reclassify(ndvibefore, cbind(006400, NA))# I did't remove the green part in the other graphs to see better the continent (006400 is the code for darkgreen)
  
 # I want to study only Australia, so I must find its spatial coordinates
 # I choose to study all the continent to see the widespread consequences
@@ -235,8 +235,8 @@ fcl <- colorRampPalette(c("white", "darkred"))(2) #two colors to highlight the p
 plot(beforefires, col=fcl,main="fires before the season")# seems to be no burned areas, maybe the resolution is too low
 
 # so, let's zoom on the central part of australia to see if there are any burned areas
-ext<-c(120,135,-30,-20)
-beforefires<-crop(beforefires, ext)
+ext1<-c(120,135,-30,-20)
+beforefires<-crop(beforefires, ext1)
 plot(beforefires, col=fcl)
 # yes, the resolution was too low. In the central part of Australia there were many burned areas.
 
