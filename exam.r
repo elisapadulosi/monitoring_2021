@@ -192,7 +192,7 @@ plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 
 
 # BUSHFIRES
-# I took also the fires before and after that period to see if there were the same fires in the past
+# I took also the fire disturbance data before and after that period to see if there were the same fires in the past
 # bushfires before Australian bushfire season (June 2019-May 2020)-> 21-30/04/2015
 beforefires<-raster("c_gls_BA300_201504300000_GLOBE_PROBAV_V1.0.1.nc")
 
@@ -213,11 +213,11 @@ duringfires<-crop(duringfires, ext)
 afterfires<-crop(afterfires, ext)
 
 #let's plot and change the colors to the plotted images with the function colorRampPalette
-fcl <- colorRampPalette(c("white", "darkred"))(2) #two colors to highlight the presence (darkred) and absence (white) of fires
+fcl <- colorRampPalette(c("white", "darkred"))(2) #two colors to highlight the presence (darkred) and absence (white) of burned areas due to fires
 
 # function main to name the graphs
 # before
-plot(beforefires, col=fcl,main="fires before the season")# seems to be no fires
+plot(beforefires, col=fcl,main="fires before the season")# seems to be no burned areas
 # to export the map
 #in png
 png("beforefires.png")
@@ -246,7 +246,7 @@ plot(difbushfires, col= fcl, main="difference in fires from after the season and
 #let's see the difference during and before
 diflastyear <- beforefires-duringfires
 plot(diflastyear, col=fcl, main="new fires due to 2019 fires season")
-# have increased the fires in the south and east part of Australia -> consistent with the bushfires season
+# the burned areas have increased in the south and east part of Australia -> consistent with the bushfires season
 #in png
 png("new fires due to 2019 fires seasons.png")
 plot(diflastyear, col=fcl,main="new fires due to 2019 fires season") 
