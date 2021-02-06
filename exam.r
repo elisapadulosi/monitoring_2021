@@ -36,6 +36,10 @@ ndviafter<-raster("c_gls_NDVI300_202006010000_GLOBE_PROBAV_V1.0.1.nc")
 # ndvi during the bushfires Australian bushfire season (June 2019-May 2020) -> 21-30/12/2019
 ndviduring<-raster("c_gls_NDVI300_201912210000_GLOBE_PROBAV_V1.0.1.nc	")
 
+# to see all the data
+plot(ndvibefore)
+# to remove the green part of the oceans
+ndvibefore <- reclassify(ndvibefore, cbind(253:255, NA))# I did't remove the green part in the other graphs to see better the continent
  
 # I want to study only Australia, so I must find its spatial coordinates
 # I choose to study all the continent to see the widespread consequences
