@@ -22,7 +22,7 @@ library(ggplot2)
 setwd("/Users/elisapadulosi/Google Drive/LAB/")
 
 # for this project I want to study NDVI, fires disturbance and land surface temperature. See if and how those variables have changed over time due to the Australia bushfire season
-# I choose to plot also the fires disturbance to see the  differences in occurrence from this period to others in Australia (in which they are very common)
+# I choose to plot also the fires disturbance to see the  differences in occurrence from this period and others in Australia
 # My hypothesis: NDVI before > NDVIafter  Tbefore < Tafter
 
 
@@ -103,7 +103,7 @@ plot(difbushfires, col= Ncl,main="NDVI differnce")
 
 
 
-# TEMPERATURE (10 days-> to let the athmosphere react)
+# TEMPERATURE (10 days-> to see the changes in a better way)
 # temperature before Australia bushfire season (June 2019-May 2020) -> 1-10/04/2019
 tbefore<- raster("c_gls_LST10-DC_201904010000_GLOBE_GEO_V1.2.1.nc")
 
@@ -192,7 +192,7 @@ plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 
 
 # BUSHFIRES
-# I took also the fire disturbance data before and after that period to see if there were the same fires in the past
+# I took also the fire disturbance data before and after that period to see if there was a similar situation also in the past
 # bushfires before Australian bushfire season (June 2019-May 2020)-> 21-30/04/2015
 beforefires<-raster("c_gls_BA300_201504300000_GLOBE_PROBAV_V1.0.1.nc")
 
