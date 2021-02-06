@@ -81,9 +81,9 @@ plot(ndviafter, col=Ncl,main="NDVI after bushfires")
 dev.off()
 
 
-# let's see the differences before and after
+# let's see the differences before and after (NDVI after > NDVI before)
 difbushfires<- ndvibefore-ndviafter
-plot(difbushfires, col= Ncl) #south and east parts have decrease of ndvi, conistent with the drescrese in the vegetation due to the bushfires
+plot(difbushfires, col= Ncl) #south and east parts have decrease of ndvi, conistent with the drescrese in the vegetation due to the bushfires  # this is the expected value
 #the scale of the image is from -1.0 to 1.0 -> right scale for the NDVI
 # to export the map
 #in png
@@ -92,10 +92,20 @@ Ncl <- colorRampPalette(c('red','gold','darkgoldenrod3',"cyan","cyan4","chartreu
 plot(difbushfires, col=Ncl,main="NDVI difbushfires") 
 dev.off()
 
+#let's see the difference with these data (because NDVI after is not < of NDVI before)
+Tdifbushfires<- ndviafter-ndvibefore
+plot(Tdifbushfires, col= Ncl)
+# to export the map
+#in png
+png("Data NDVI difbushfires.png")
+plot(Tdifbushfires, col=Ncl,main="Data NDVI difbushfires") 
+dev.off()
+
+
 #let's create a grapf with: ndvibefore, ndviduring, ndviafter, difbushfires
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
-par(mfrow=c(1,4)) # 1 row, 4 colums
+par(mfrow=c(2,2)) # 2 row, 2 colums
 plot(ndvibefore, col=Ncl,main="NDVI before bushfires")
 plot(ndviduring, col=Ncl,main="NDVI during bushfires")
 plot(ndviafter, col=Ncl,main="NDVI after bushfires")
@@ -184,7 +194,7 @@ dev.off()
 #let's create a grapf with: tbefore, tduring, tafter, tdifbushfires
 # par function to have multiple graphs in a single plot 
 #used main to name the table
-par(mfrow=c(1,4)) # 1 row, 4 colums
+par(mfrow=c(2,2)) # 2 rows, 2 colums
 plot(tbefore, col=tcl,main="T before bushfires")
 plot(tduring, col=tcl,main="T during bushfires")
 plot(tafter, col=tcl,main="T after bushfires")
@@ -255,7 +265,7 @@ dev.off()
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
 # par function to have multiple graphs in a single plot 
 #used main to namw the table
-par(mfrow=c(1,4)) # 1 row, 4 colums
+par(mfrow=c(2,2)) # 2 rows, 2 colums
 plot(beforefires, col=fcl,main="fires before the season")
 plot(duringfires, col=fcl,main="fires during the season")
 plot(afterfires, col=fcl,main="fires after the season")
