@@ -44,7 +44,7 @@ ndvibefore <- reclassify(ndvibefore, cbind(006400, NA))# I did't remove the gree
  
 # I want to study only Australia, so I must find its spatial coordinates
 # I choose to study all the continent to see the widespread consequences
-# let's crop the ndvibefore (the global one is too heavy to plot). 
+# let's crop the ndvibefore (the global one is too heavy to plot)
 ext<-c(110,155,-45,-10)#xmin xmax, ymin e ymax
 ndvibefore<-crop(ndvibefore, ext)
 
@@ -109,7 +109,7 @@ dev.off()
 
 #let's create a grapf with: ndvibefore, ndviduring, ndviafter, difbushfires
 # par function to have multiple graphs in a single plot 
-#used main to namw the table
+#used main to name the table
 par(mfrow=c(2,2)) # 2 row, 2 colums
 plot(ndvibefore, col=Ncl,main="NDVI before bushfires")
 plot(ndviduring, col=Ncl,main="NDVI during bushfires")
@@ -167,7 +167,7 @@ plot(tduring, col=tcl,main="T during bushfires")
 dev.off()
 
 #after
-plot(tafter, col=tcl,main="T after bushfires") #increase in T
+plot(tafter, col=tcl,main="T after bushfires") # higher T
 # to export the map
 #in png
 png("T after bushfires.png")
@@ -207,7 +207,7 @@ plot(tdifbushfires, col= tdiffcl, main="difference T after and before")
 
 
 # BUSHFIRES
-# I took also the fire disturbance data before and after that period to see if there was a similar situation also in the past
+# I took also the fire disturbance data before that period to see the past situation
 # bushfires before Australian bushfire season (June 2019-May 2020)-> 21-30/04/2015
 beforefires<-raster("c_gls_BA300_201504300000_GLOBE_PROBAV_V1.0.1.nc")
 
