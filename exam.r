@@ -279,7 +279,7 @@ dev.off()
 
 #let's create a grapf with: beforefires, duringfires, afterfires, difbushfires
 # par function to have multiple graphs in a single plot 
-#used main to namw the table
+#used main to name the table
 par(mfrow=c(2,2)) # 2 rows, 2 colums
 plot(beforefires, col=fcl,main="fires before the season")
 plot(duringfires, col=fcl,main="fires during the season")
