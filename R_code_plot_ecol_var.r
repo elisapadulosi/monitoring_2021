@@ -51,7 +51,7 @@ pairs(meuse[,3:6])
 pairs(~cadmium+copper+lead+zinc, data=meuse) 
 
 #let's prettify the graph
-#exercise: just ude cadmium, lead, zinc
+#exercise: just use cadmium, lead, zinc
 pairs(~cadmium+copper+zinc, data=meuse) 
 
 #exercise: change the color
