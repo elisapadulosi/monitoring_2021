@@ -16,6 +16,6 @@ plot(tjan, col=cltjan) # to change the colors
 #difference between the temperature of january and october at the soil level # higher the difference->more red the image
 toct<-raster("c_gls_LST10-DC_202010010000_GLOBE_GEO_V1.2.1.nc")#name of the file that contains the temperature data of October
 dift <- tjan - toct
-cldif <- colorRampPalette(c('blue','white','red'))(100) #
-plot(dift, col=cldif) # if it gives an error it's because you have to download the january data from Copernicus also
+cldif <- colorRampPalette(c('blue','white','red'))(100) 
+plot(dift, col=cldif) # if it gives an error it's because you have to download also the january data from Copernicus 
 
