@@ -27,10 +27,10 @@ setwd("/Users/elisapadulosi/Google Drive/LAB/")
 
 
 # NDVI is used to observe if the vegetation is alive
-# ndvi before Australian bushfire season (June 2019-May 2020) -> 10/04/2019
+# ndvi before Australian bushfire season (June 2019-May 2020) -> 1-10/04/2019
 ndvibefore<-raster("c_gls_NDVI300_201904010000_GLOBE_PROBAV_V1.0.1.nc")
 
-# ndvi after Australian bushfire season (June 2019-May 2020) -> 10/06/2020
+# ndvi after Australian bushfire season (June 2019-May 2020) -> 1-10/06/2020
 ndviafter<-raster("c_gls_NDVI300_202006010000_GLOBE_PROBAV_V1.0.1.nc")
 
 # ndvi during the bushfires Australian bushfire season (June 2019-May 2020) -> 21-30/12/2019
